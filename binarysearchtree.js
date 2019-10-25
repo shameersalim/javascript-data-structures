@@ -11,6 +11,39 @@ class BinarySearchTree {
         this.size = 0;
     }
 
+    find(elem) {
+        let depth = 0;
+        const node = new Node(elem);
+        if (this.root.data == elem) {
+            depth = 0;
+            return;
+        }
+        let currNode = this.root;
+        while (currNode) {
+            if (currNode.data === elem) {
+                console.log('Depth of ', elem, ' is ', depth);
+                break;
+            }
+            if (elem < currNode.data) {
+                if (!currNode.left) {
+                    break;
+                } else {
+                    currNode = currNode.left;
+                    depth ++;
+                }
+            } else if (elem > currNode.data) {
+                if (!currNode.right) {
+                    break;
+                } else {
+                    currNode = currNode.right;
+                    depth ++;
+                }
+            }
+           
+
+        }
+    }
+
     insert(elem) {
         const node = new Node(elem);
         if (!this.root) {
@@ -39,39 +72,6 @@ class BinarySearchTree {
             }
         }
     }
-
-
-    traverse(node, elem) {
-        
-
-    }
-
-
-    /*
-    traverse(node, elem) {
-        if (!node.left && !node.right) {
-            if (elem < node.data) {
-                node.left = new Node(elem);
-            } else if (elem > node.right) {
-                node.right = new Node(elem);
-            }
-            return;
-        }
-       if (elem < node.left.data) {
-        if (node.left === null) {
-            node.left = new Node(elem);
-        } else {
-            this.traverse(node.left, elem);
-        }
-       } else if (elem > node.right.data) {
-           if (node.right === null) {
-            node.right = new Node(elem);
-           } else {
-               this.traverse(node.right, elem);
-           }
-       }
-    }
-    */
 }
 
 
@@ -87,4 +87,16 @@ bst.insert(33);
 bst.insert(2);
 bst.insert(25);
 bst.insert(6);
+
+bst.find(7);
+bst.find(20);
+bst.find(5);
+bst.find(15);
+bst.find(10);
+bst.find(4);
+// bst.insert(4);
+bst.find(33);
+bst.find(2);
+bst.find(25);
+bst.find(6);
 debugger;
