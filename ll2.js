@@ -22,3 +22,15 @@ class LinkedList {
         current.next = new Node(value);
     }
 }
+
+const l11 = new LinkedList();
+const l21 = new LinkedList();
+
+function add(l1, l2) {
+    const res = new LinkedList();
+    const dat = l1.head.data + l2.head.data;
+    res.append(dat);
+}
+
+add(l11, l21);
+

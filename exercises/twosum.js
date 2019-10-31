@@ -25,7 +25,7 @@ const map = {};
 for (let i = 0; i < ar.length; i ++) {
     const key = ar[i];
     map[key] = i;
-    const diff = targetSum - ar[i];
+    const diff = targetSum - key;
     console.log(map[diff]);
     if (map[diff] !== undefined) {
         console.log(i, map[diff]);
